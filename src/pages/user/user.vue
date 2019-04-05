@@ -68,8 +68,8 @@
           		   <br>
           			  <span style="color: #FFFFE0;font-size: 14px;margin-left: 13%;">去过2个国家 2个城市 2个地点</span>
           			  <br>
-          			  <img src="../../assets/china.jpg" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;margin-left: 40%;">
-          			  <img src="../../assets/Japan.png" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;margin-left: -10px;">
+          			  <img src="../../assets/img/china.jpg" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;margin-left: 40%;">
+          			  <img src="../../assets/img/Japan.png" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;margin-left: -10px;">
           		 </div>
            <div style="white-space: nowrap;">
           		 <div>
@@ -81,7 +81,7 @@
           </div>
            <div style="white-space: nowrap;margin-left: 11.9%;">
             <div>
-          		<img src="../../assets/china.jpg" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;">
+          		<img src="../../assets/img/china.jpg" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;">
           		</div>
           		<div style="margin-top: -34px;margin-left: 45px;">
           		   <span style="color: #FFFFFF;font-size: 18px;">中国</span>
@@ -125,7 +125,7 @@
 		   </div>
 		 <div style="white-space: nowrap;margin-left: 11.9%;">
 		  <div>
-		           		<img src="../../assets/Japan.png" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;">
+		           		<img src="../../assets/img/Japan.png" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;">
 		           		</div>
 		           		<div style="margin-top: -34px;margin-left: 45px;">
 		           		   <span style="color: #FFFFFF;font-size: 18px;">日本</span>
@@ -227,7 +227,7 @@
 	  data(){
         return {  
 			   backgroundDiv: {
-                                backgroundImage:'url(' + require('../../assets/1.jpg') + ')',
+                                backgroundImage:'url(' + require('../../assets/img/userbackground.jpg') + ')',
                                 backgroundRepeat:"no-repeat",
                                 backgroundSize:"100% 15%"
                               },
