@@ -1,21 +1,19 @@
 <!-- author:倪霞 -->
 <!-- data：2019.3.26-->
-<!-- description：开发我的界面-->
+<!-- description：开发'我的'界面-->
 <template>
-	<div class="backgroundDiv" :style="backgroundDiv">
-	  <div >
+	<div>
+		<div style="z-index: -2;position: absolute;">
+		<img :src=" bg_img" style="width:100%;height: 150px;"> 
+		</div>
+	  <div style="z-index: 0;">
 		 <x-icon type="ios-arrow-back" size="40" fill="#FFFFFF"></x-icon>
 		  <i class="iconfont icongengduo" slot="icon" style="color:#FFFFFF;font-size: 35px;margin-left: 70%;"></i> 
 		  <br>
 	  </div>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
-	  <div style="white-space: nowrap;">
-		  <div style="">
-	         <img src="../../assets/img/touxiang.jpg" style="width: 60px;height: 60px;border-radius: 30px;margin-left: 12.5%;">
+	  <div style="white-space: nowrap;margin-top: 70px;">
+		  <div >
+	         <img :src=" head" style="width: 60px;height: 60px;border-radius: 30px;margin-left: 12.5%;">
 	      </div>
 	    <div style="background-color: #666666;margin-left: 65%;margin-top:-25px;width:14.625%;">
 	   		   <i class="iconfont icontubiao14" slot="icon" style="color:#ADADAD;font-size: 15px;"></i>
@@ -29,9 +27,9 @@
 	   		 	</div>
 	   </div>
 	  <div>
-	     <span style="color: #FFFFFF;margin-left: 11.5%;">rgmymt</span>
+	     <span style="color: #FFFFFF;margin-left: 11.5%;">{{nick}}</span>
 		 <br>
-		 <span style="font-size:11px;color: #ADADAD;margin-left: 11.3%;">酷游号：123456789</span>
+		 <span style="font-size:11px;color: #ADADAD;margin-left: 11.3%;">{{'酷游号：'+ u_id}}</span>
 		 <br>
 		 <span style="font-size:11px;color: #ADADAD;margin-left: 11.3%;">添加个性签名</span>
 	   </div>
@@ -39,19 +37,19 @@
 	   <div style="white-space: nowrap;margin-left: 11.5%;margin-top: 5px;">
 	    <div style="background-color: #666666;width:50px;">
 		   <i class="iconfont iconyonghu" slot="icon" style="color:deeppink;font-size: 15px;"></i>
-		   <span style="font-size:11px;color:#ADADAD;margin-left: 0px;">20岁</span>
+		   <span style="font-size:11px;color:#ADADAD;margin-left: 0px;">{{age}}</span>
 		 </div>
 		<div style="background-color: #666666;margin-top: -22px;margin-left: 60px;width:30px;">
-		   <span style="font-size:11px;color:#ADADAD;margin-top: 0px;">杭州</span>
+		   <span style="font-size:11px;color:#ADADAD;margin-top: 0px;">{{city}}</span>
 		 	</div>
 		<div style="background-color: #666666;margin-top: -21px;margin-left: 100px;width:100px">
 		   <span style="font-size:11px;color:#ADADAD;margin-top: 0px;">+增加学校等标签</span>
 		 	</div>
 	   </div>
 	   <div style="white-space: nowrap;margin-top:10px;margin-left: 10%;">
-	      <span style="color: #FFFFFF;">0 获赞</span>
-	   	  <span style="color: #FFFFFF;margin-left: 12.5%;">49 关注</span>
-	   	  <span style="color: #FFFFFF;margin-left: 12.5%;">11 粉丝</span>
+	      <span style="color: #FFFFFF;">{{thumb_num+' 获赞'}}</span>
+	   	  <span style="color: #FFFFFF;margin-left: 12.5%;">{{following_num+' 关注'}}</span>
+	   	  <span style="color: #FFFFFF;margin-left: 12.5%;">{{fans_num+' 粉丝'}}</span>
 	    </div>
 		<div>
 		  <tab :line-width="1" badge-background="#333333" v-model="index" style="width: 100%;" >
@@ -59,13 +57,14 @@
 				<tab-item style="font-size: 16px;" >{{'作品'+worknum}}</tab-item>
 				<tab-item style="font-size: 16px;">{{'喜欢'+likenum}}</tab-item>
 		</tab>
-	<swiper v-model="index" width="100%" height="800px" :show-dots="false">
-        <swiper-item ><!-- 酷游踪迹 -->
-		<div class="tab-swiper vux-center">
+	<swiper v-model="index" width="100%" height="220px" :show-dots="false" :min-moving-distance="120">
+        <swiper-item style="height: auto;"><!-- 酷游踪迹 -->
+		<scroller lock-x height="220px">
+		<div class="tab-swiper vux-center" style="padding-bottom:80px;">
           <div style="white-space: nowrap;margin-top:10px;">
           		   <span style="color: #FFFFFF;font-size: 18px;font-weight: 700;margin-left: 11.9%;">我的旅行</span>
           		   <br>
-          			  <span style="color: #FFFFE0;font-size: 14px;margin-left: 13%;">去过2个国家 2个城市 2个地点</span>
+          			  <span style="color: #FFFFE0;font-size: 14px;margin-left: 13%;">{{'去过'+country_num+'个国家 '+city_num+'个城市 '+place_num+'个地点'}}</span>
           			  <br>
           			  <img src="../../assets/img/china.jpg" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;margin-left: 40%;">
           			  <img src="../../assets/img/Japan.png" style="width: 40px;height: 40px;border-radius: 20px;margin-top:15px;margin-left: -10px;">
@@ -75,7 +74,7 @@
           			 <span style="color: #FFFFFF;font-size: 18px;font-weight: 550;margin-left: 11.9%;">2018.12</span>
           		</div>
           		<div style="margin-top: -24px;margin-left: 75%;">
-          			<span style="color: #FFFFFF;font-size: 18px;">旅行一年</span>
+          			<span style="color: #FFFFFF;font-size: 18px;">{{'旅行'+travalyear+'年'}}</span>
           		</div>
           </div>
            <div style="white-space: nowrap;margin-left: 11.9%;">
@@ -167,50 +166,54 @@
 		 			</div>
 		 </div>
 		</div>
+		</scroller>
         </swiper-item><!-- 作品 -->
 				<swiper-item >
+					<scroller lock-x height="220px">
 					<div class="tab-swiper vux-center">
 						<router-link to="/videoplay" v-for="(worksrc,id) in worklist" :key="id">
 							<img :src="worksrc" style="margin-left: 5px;margin-top: 5px;width: 30%;height: auto;">
 						</router-link>
 					</div>
+					</scroller>
 				</swiper-item>
 				<swiper-item ><!-- 喜欢 -->
+				<scroller lock-x height="220px">
 					<div class="tab-swiper vux-center">
 						<router-link to="/videoplay" v-for="(likesrc,id) in likelist" :key="id">
 							<img :src="likesrc" style="margin-left: 5px;margin-top: 5px;width: 30%;height: auto;">
 						</router-link>
 					</div>
+					</scroller>
 				</swiper-item>
       </swiper>
 			</div>
 	 <!-- 底部导航栏 -->	
 	 <div>
-	   <tabbar style="background-color: #333333;height: 50px;position: fixed;">
-	  		  <tabbar-item link="/home">
-	  		   <span slot="label" style="font-size: 15px;">首页</span>
-	  		  </tabbar-item>
-	  		  <tabbar-item link="/activity">
-	  		   <span slot="label" style="font-size: 15px;">活动</span>
-	  		  </tabbar-item>
-	  		  <tabbar-item style="padding-top: 7px;">
-	  		   <i class="iconfont iconvideo" slot="icon" style="font-size: 35px;"></i>
-	  		  </tabbar-item>
-	  		  <tabbar-item  link="/message">
-	  		   <span slot="label" style="font-size: 15px;">消息</span>
-	  		  </tabbar-item>
-	  		  <tabbar-item selected link="/user">
-	  		   <span slot="label" style="font-size: 15px;">我的</span>
-	  		  </tabbar-item>
-	  		</tabbar>
-	  
+	   <tabbar style="background-color: #333333;position: fixed;height: 50px;">
+		  <tabbar-item>
+		   <span slot="label" style="font-size: 15px;">首页</span>
+		  </tabbar-item>
+		  <tabbar-item  link="/activity">
+		   <span slot="label" style="font-size: 15px;">活动</span>
+		  </tabbar-item>
+		  <tabbar-item style="padding-top: 7px;">
+		    <i class="iconfont iconvideo" slot="icon" style="font-size: 35px;"></i>
+		  </tabbar-item>
+		  <tabbar-item  link="/message">
+		   <span slot="label" style="font-size: 15px;">消息</span>
+		  </tabbar-item>
+		  <tabbar-item selected link="/user">
+		   <span slot="label" style="font-size: 15px;">我的</span>
+		  </tabbar-item>
+		</tabbar>
      </div>
 
 	</div>
 </template>
 
 <script>
-	import { Tabbar, TabbarItem,Tab, TabItem,XButton,Swiper, SwiperItem,Flexbox, FlexboxItem} from 'vux'
+	import { Tabbar, TabbarItem,Tab, TabItem,XButton,Swiper, SwiperItem,Flexbox, FlexboxItem,Scroller} from 'vux'
 	import '../../assets/iconfont/iconfont.css' 
 	export default {
 		components: {
@@ -222,17 +225,29 @@
 	     SwiperItem,
 		  XButton,
 		  Flexbox, 
-		  FlexboxItem
+		  FlexboxItem,
+		  Scroller,
 		 },
 	  data(){
         return {  
-			   backgroundDiv: {
-                                backgroundImage:'url(' + require('../../assets/img/userbackground.jpg') + ')',
-                                backgroundRepeat:"no-repeat",
-                                backgroundSize:"100% 15%"
-                              },
 					worknum:2,
 					likenum:1,
+					bg_img:'../../../static/img/userbackground.jpg',
+					nick:'rgmymt',
+				  head:'../../../static/img/touxiang.jpg',
+					u_id:'123456789',
+					signature:'添加个性签名',
+					age:'20岁',
+					city:'杭州',
+					works_num:2,
+					like_num:1,
+					thumb_num:0,
+					following_num:49,
+					fans_num:11,
+					country_num:2,
+					city_num:2,
+					place_num:2,
+					travalyear:1,
 					flag:'酷游踪迹',
 					worklist:[
 						'../../../static/img/work1.png',
@@ -265,5 +280,8 @@
 		background-color: #333333 !important; 
 		border-color: rgb(252, 55, 140) !important;
 	}
-    
+    .el-scrollbar__wrap {
+         overflow-x: hidden;
+     }
 </style>
+
