@@ -34,16 +34,15 @@
 				Flexbox,
 		FlexboxItem,
 			},
+			
 		data(){
 			return{
 				biaoqiantitle:'#美食',
 					videolist: [{
 						dingwei: '麻辣小龙虾',
 						fenmian:'../../../static/img/mala1.png',
-						biaoqianlist: [
-							'#爆浆爆黄小龙虾',
-							'#杭州美食打卡'
-						],
+						biaoqianstr:'#爆浆爆黄小龙虾 #杭州美食打卡',
+						biaoqianlist: [],
 						liuyan: '吃货的嘴骗人的鬼',
 						touxiang: '../../../static/img/touxiang1.png',
 						id:'sddf'
@@ -51,16 +50,22 @@
 					{
 						dingwei: '麻辣小龙虾',
 						fenmian:'../../../static/img/mala2.png',
-						biaoqianlist: [
-							'#爆浆爆黄小龙虾',
-							'#杭州美食打卡'
-						],
+						biaoqianstr:'#爆浆爆黄小龙虾 #杭州美食打卡',
+						biaoqianlist: [],
 						liuyan: '吃货的嘴骗人的鬼',
 						touxiang: '../../../static/img/touxiang1.png',
 						id:'sddf'
 					}],
 				}
-				}		
+				},
+				created(){
+					for(var i;i<this.biaoqianstr.length;i++){
+					if(this.biaoqianstr[i]=="#")
+						num++;
+					this.biaoqianlist[num].push(this.biaoqianstr[i]);
+					}
+					
+				}
 	}
 </script>
 

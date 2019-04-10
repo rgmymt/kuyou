@@ -26,11 +26,11 @@
 	<img slot="icon" width="35" style="display:block;margin-right:15px;border-radius: 17px;" src="../../assets/img/提醒.png">
 	</cell>
 	</div>
-	 <tabbar style="background-color: #333333;height: 50px;">
-		  <tabbar-item>
+	 <tabbar style="background-color: #333333;height: 50px;position: fixed;">
+		  <tabbar-item link="/home">
 		   <span slot="label" style="font-size: 15px;">首页</span>
 		  </tabbar-item>
-		  <tabbar-item >
+		  <tabbar-item link="/activity">
 		   <span slot="label" style="font-size: 15px;">活动</span>
 		  </tabbar-item>
 		  <tabbar-item style="padding-top: 7px;">

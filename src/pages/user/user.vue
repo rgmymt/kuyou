@@ -3,7 +3,6 @@
 <!-- description：开发我的界面-->
 <template>
 	<div class="backgroundDiv" :style="backgroundDiv">
-	<el-scrollbar>
 	  <div >
 		 <x-icon type="ios-arrow-back" size="40" fill="#FFFFFF"></x-icon>
 		  <i class="iconfont icongengduo" slot="icon" style="color:#FFFFFF;font-size: 35px;margin-left: 70%;"></i> 
@@ -171,14 +170,14 @@
         </swiper-item><!-- 作品 -->
 				<swiper-item >
 					<div class="tab-swiper vux-center">
-						<router-link to="/videoplay" v-for="worksrc in worklist" >
+						<router-link to="/videoplay" v-for="(worksrc,id) in worklist" :key="id">
 							<img :src="worksrc" style="margin-left: 5px;margin-top: 5px;width: 30%;height: auto;">
 						</router-link>
 					</div>
 				</swiper-item>
 				<swiper-item ><!-- 喜欢 -->
 					<div class="tab-swiper vux-center">
-						<router-link to="/videoplay" v-for="likesrc in likelist" >
+						<router-link to="/videoplay" v-for="(likesrc,id) in likelist" :key="id">
 							<img :src="likesrc" style="margin-left: 5px;margin-top: 5px;width: 30%;height: auto;">
 						</router-link>
 					</div>
@@ -187,25 +186,26 @@
 			</div>
 	 <!-- 底部导航栏 -->	
 	 <div>
-	   <tabbar style="background-color: #333333;position: fixed;height: 50px;">
-		  <tabbar-item>
-		   <span slot="label" style="font-size: 15px;">首页</span>
-		  </tabbar-item>
-		  <tabbar-item  link="/activity">
-		   <span slot="label" style="font-size: 15px;">活动</span>
-		  </tabbar-item>
-		  <tabbar-item style="padding-top: 7px;">
-		    <i class="iconfont iconvideo" slot="icon" style="font-size: 35px;"></i>
-		  </tabbar-item>
-		  <tabbar-item  link="/message">
-		   <span slot="label" style="font-size: 15px;">消息</span>
-		  </tabbar-item>
-		  <tabbar-item selected link="/user">
-		   <span slot="label" style="font-size: 15px;">我的</span>
-		  </tabbar-item>
-		</tabbar>
+	   <tabbar style="background-color: #333333;height: 50px;position: fixed;">
+	  		  <tabbar-item link="/home">
+	  		   <span slot="label" style="font-size: 15px;">首页</span>
+	  		  </tabbar-item>
+	  		  <tabbar-item link="/activity">
+	  		   <span slot="label" style="font-size: 15px;">活动</span>
+	  		  </tabbar-item>
+	  		  <tabbar-item style="padding-top: 7px;">
+	  		   <i class="iconfont iconvideo" slot="icon" style="font-size: 35px;"></i>
+	  		  </tabbar-item>
+	  		  <tabbar-item  link="/message">
+	  		   <span slot="label" style="font-size: 15px;">消息</span>
+	  		  </tabbar-item>
+	  		  <tabbar-item selected link="/user">
+	  		   <span slot="label" style="font-size: 15px;">我的</span>
+	  		  </tabbar-item>
+	  		</tabbar>
+	  
      </div>
-	</el-scrollbar>
+
 	</div>
 </template>
 
@@ -265,7 +265,5 @@
 		background-color: #333333 !important; 
 		border-color: rgb(252, 55, 140) !important;
 	}
-    .el-scrollbar__wrap {
-         overflow-x: hidden;
-     }
+    
 </style>

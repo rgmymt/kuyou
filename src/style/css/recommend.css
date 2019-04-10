@@ -1,0 +1,804 @@
+html,body{
+
+  margin:0 0;
+  padding:0 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(192,192,192,0.2);
+
+}
+#app{
+  margin:0 0;
+  padding:0 0;
+  width: 100%;
+  height: 100%;
+}
+.search{
+  font-size: 30px !important;
+  color:rgb(255,255,255);
+}
+.tab{
+  position: absolute;
+  z-index:3;
+  /*display:flex;*/
+  width: 80%;
+  margin:0 10%;
+  height:40px;
+  line-height:60px;
+  /*background-color: rgba(150,150,150,0.5);*/
+
+}
+.tab .tab-item{
+  flex: 1;
+  width:25%;
+  float:left;
+  text-align:center;
+}
+
+.switch{
+  display: block;
+  font-size: 14px;
+  color: #c9c9c9
+}
+.active{
+  color: rgb(255,85,93)
+}
+
+.iconfont-my {
+  font-family: "iconfont-my" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.mylikefill:before {
+  content: "\e668";
+  color:red;
+}
+
+
+/*content*/
+.full{
+  position: absolute;
+  width:100%;
+  height:100%;
+  margin:0 0;
+  z-index:2;
+}
+
+.video-player {
+
+  height: 100%;
+
+  width: 100%;
+
+}
+
+.video_box {
+
+  object-fit: cover !important;
+
+  z-index: 999;
+
+  width: 100%;
+
+  height: 100%;
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  overflow: hidden;
+
+}
+
+
+
+video {
+
+  object-position: 0 0;
+
+}
+
+/*视频描述*/
+.heads   {
+  width:3rem;
+  height:3rem;
+  border-radius:50%;
+  overflow:hidden ;
+  text-align:center ;
+  background:#e8e8e8;
+  margin:0 .34rem .3rem 0 ;
+  line-height:3rem  ;
+  float:left;
+}
+.heads img{
+  width:100%;
+  height:100%;
+}
+.video_container{
+  z-index: 2;
+}
+
+/*底部用户信息描述*/
+.username{
+  margin-top:8%;
+  text-align:center;
+  float:left;
+}
+.focus{
+  margin-top:7%;
+  margin-left:5%;
+  border-radius:7%;
+  padding:1% 2%;
+  text-align:center;
+  float:left;
+  background-color:greenyellow;
+}
+
+.cancelfocus{
+  display:none;
+  margin-top:7%;
+  margin-left:5%;
+  border-radius:7%;
+  padding:1% 2%;
+  text-align:center;
+  float:left;
+  background-color:red;
+}
+.production_box {
+
+  z-index: 1001;
+
+  position: absolute;
+
+  /* right: 16px; */
+
+  bottom: 12%;
+
+  text-align: left;
+
+  padding: 0 15px 15px 15px;
+
+  color: #fff;
+
+  width: 100%;
+
+  left: 0;
+
+  box-sizing: border-box;
+
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.2),rgba(0,0,0,0)); /* Safari 5.1 - 6.0 */
+
+  background: -o-linear-gradient(top, rgba(0,0,0,0.2), rgba(0,0,0,0)); /* Opera 11.1 - 12.0 */
+
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.2),rgba(0,0,0,0)); /* Firefox 3.6 - 15 */
+
+  background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0)); /* 标准的语法 */
+
+}
+
+.production_sign {
+
+  font-weight: 700;
+
+  font-size: 16px;
+  color:yellow;
+
+}
+
+
+
+.production_des {
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 3;
+
+  -webkit-box-orient: vertical;
+
+  min-height: 50px;
+
+  font-size:13px;
+
+
+}
+
+
+
+
+
+.production_top{
+
+  display: inline-block;
+
+  padding: 6px;
+
+  margin-bottom: 5px;
+
+  background: rgba(0,0,0,.3);
+
+  border-radius: 6px;
+
+  margin-top: 5px;
+
+}
+
+.product_go{
+
+  color: #fbdd21;
+
+}
+
+.production_title{
+
+  margin-left: 4px;
+
+}
+
+/* 点赞，转发 */
+
+.tools_right {
+
+  z-index: 1001;
+
+  position: absolute;
+
+  right: 16px;
+
+  bottom: 170px
+
+}
+
+
+
+.tools_r_li {
+
+  margin-bottom: 20px;
+
+  color: #fff;
+
+  font-size: 14px;
+
+}
+
+
+
+.tools_r_li:last-child {
+
+  margin-bottom: 0px;
+
+}
+
+
+.icon_bottom {
+
+  margin-bottom: 5px;
+
+  font-size: 30px !important;
+
+  display: block;
+
+  text-shadow: 0px 0px 10px #9d9d9d;
+
+  /*transition: .5s;*/
+
+}
+
+.tools_bottom {
+
+  z-index: 1001;
+
+  position: absolute;
+
+
+  bottom: 0px;
+}
+
+
+
+.tools_b_li {
+
+  margin-bottom: 0px;
+
+  color: #fff;
+
+  font-size: 14px;
+
+  float:right;
+
+}
+
+
+
+.tools_b_li:last-child {
+
+  margin-bottom: 0px;
+
+}
+
+.icon_right {
+
+  font-size: 20px !important;
+
+  display: block;
+
+  text-shadow: 0px 0px 10px #9d9d9d;
+  float:left;
+
+  /*transition: .5s;*/
+
+}
+.tools_r_num{
+  float:left;
+  margin-top:10px;
+  margin-right:10px;
+}
+
+
+/*分享样式*/
+
+.share_hover{
+
+  position: fixed;
+
+  display: none;
+
+
+
+}
+
+
+
+.share_box{
+
+  position: fixed;
+
+  bottom: -300px;
+
+  width: 100%;
+
+  z-index: 1003;
+
+  background: #fff;
+
+  border-top-left-radius: 10px;
+
+  border-top-right-radius: 10px;
+
+  transition: .5s;
+
+}
+
+.share_tips{
+
+  text-align: center;
+
+  line-height: 38px;
+
+  color: #333;
+}
+
+.share_ul{
+
+  box-sizing: border-box;
+
+  padding: 0 25px 0px 25px;
+
+  border-bottom: 1px solid #e8e8e8;
+
+
+}
+
+.share_li{
+
+  float: left;
+
+  width: 27%;
+
+  text-align: center;
+
+
+}
+
+.share_li i{
+
+  font-size: 15px;
+
+}
+
+.share_cancel{
+
+
+  padding-top:15px;
+
+  text-align:center;
+
+  line-height: 48px;
+
+  color: #777;
+
+
+}
+
+.pengyouquan{
+
+  color: #47D000;
+
+
+
+}
+
+.pengyouquan_li{
+
+  animation: rotating 8s linear infinite
+
+}
+
+@keyframes rotating{
+
+  from{transform:rotate(0)}
+
+  to{transform:rotate(360deg)}
+
+}
+
+.weixin{
+
+  color:#20CA2E;
+
+}
+
+.lianjie{
+
+  color: red;
+
+}
+
+.share_active{
+
+  bottom: 0px;
+
+}
+
+
+/*评论框样式*/
+.cancelrate{
+  position:absolute;
+  right:5%;
+  top:5px;
+}
+.message_hover{
+
+  position: fixed;
+
+  display: none;
+
+
+
+}
+
+
+.message_box{
+
+  position: fixed;
+
+  bottom: -600px;
+
+  width: 100%;
+
+  z-index: 1003;
+
+  background: #fff;
+
+  border-top-left-radius: 20px;
+
+  border-top-right-radius: 20px;
+
+  transition: .5s;
+  max-height: 350px;
+  min-height: 350px;
+
+}
+.message_active{
+
+  bottom: 0px;
+
+}
+.rating-wrapper{
+  margin:0 0;
+  padding:0 4%;
+  max-height: 260px;
+  min-height: 260px;
+  overflow-y: scroll;
+}
+.rating-wrapper::-webkit-scrollbar {
+
+  display: none;
+
+}
+.rating-item{
+  position:relative;
+  padding:16px 0;
+  border-bottom: 1px solid rgba(7,17,27,0.1);
+}
+.text{
+  margin-left:22px;
+  font-size:11px;
+  font-weight: inherit;
+  color:rgb(50,50,50);
+}
+.rating-like{
+  position:absolute;
+  right:0;
+  top:10px;
+  line-height:12px;
+}
+.rlikenum{
+  font-size:8px;
+  margin-top:8px;
+  margin-bottom: 5px;
+  position:absolute;
+  top:16px;
+  right:0;
+}
+.name{
+  display:inline-block;
+  vertical-align: top;
+  font-size:10px;
+  color:rgb(147,153,159);
+}
+.avatar{
+  border-radius:50%;
+}
+.time{
+  line-height:12px;
+  font-size:8px;
+  color:rgb(147,153,159);
+}
+.reply-like{
+  position:absolute;
+  left:260px;
+  top:10px;
+  line-height:12px;
+}
+.rylikenum{
+  font-size:8px;
+  margin-top:8px;
+  margin-bottom: 5px;
+  position:absolute;
+  left:260px;
+  top:16px;
+  right:0;
+}
+/*底部栏*/
+.displaynone{
+  display: none;
+}
+
+.container_bottom{
+
+  position: fixed;
+
+  z-index:2;
+
+  bottom:3%;
+
+  width: 100%;
+
+  background: rgba(0,0,0,0.0);
+
+  height: 60px;
+
+  border-top: 1px solid rgba(255,255,255,0.7);
+
+}
+.bottom_tab{
+
+  width: 20%;
+
+  text-align: center;
+
+  float: left;
+
+  color: #c9c9c9;
+
+  padding: 10px 0;
+
+}
+
+.bottom_tab_span{
+
+  line-height: 38px;
+
+  border-bottom: 2px solid transparent;
+
+  font-weight: 600;
+
+  font-size: 16px;
+
+  display: inline-block;
+
+  padding: 0 4px;
+
+  transition: .5s all;
+
+}
+
+.tab_active .bottom_tab_span{
+
+  border-bottom: 2px solid #fff;
+
+  color: #fff;
+
+}
+
+
+
+html,body{
+
+  height: 100%;
+
+}
+
+
+
+
+
+.product_swiper {
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+
+
+.van_swipe {
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+
+
+.van-swipe {
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+
+
+.container_box {
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+
+
+
+
+
+.icon_play {
+
+  position: absolute;
+
+  top: 44%;
+
+  right: 0;
+
+  left: 0;
+
+  bottom: auto;
+
+  margin: auto;
+
+  z-index: 999;
+
+  height: 60px;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  border-radius: 50%;
+
+}
+
+
+
+.play,
+
+.platStart {
+
+  position: absolute;
+
+  margin: auto;
+
+  top: 0;
+
+  left: 0;
+
+  z-index: 999;
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+
+
+
+
+.follow_active{
+
+  color: #f44;
+
+  animation: showHeart .5s ease-in-out 0s;
+
+}
+
+/*animation-name：用来调用@keyframes定义好的动画，与@keyframes定义的动画名称一致*/
+
+/*animation-duration ：指定元素播放动画所持续的时间*/
+
+/*animatino-timing-function ： 和transition中的transition-timing-function 中的值一样。根据上面@keframes中分析的animation中可能存在多个小动画，因此这里的值设置是针对每一个小动画所在时间范围内的属性变换速率。*/
+
+/*animation-delay：定义在浏览器开始执行动画之前等待的时间，这里是指整个animation执行之前的等待时间，而不是上面说的多个小动画*/
+
+/*animation-iteration-count：定义动画的播放次数，其通常为整数，默认是1,；取值为infinite，动画将无限次的播放。*/
+
+/*animation-direction：主要用来设置动画播放方向*/
+
+@keyframes showHeart {
+
+  0%{
+
+    color: #f44;
+
+    transform: scale(1);
+
+  }
+
+  25%{
+
+    color: #fff;
+
+    transform: scale(0);
+
+  }
+
+  80%{
+
+    color: #f44;
+
+    transform: scale(1.2);
+
+  }
+
+  100%{
+
+    color: #f44;
+
+    transform: scale(1);
+
+  }
+
+}
+
+
+

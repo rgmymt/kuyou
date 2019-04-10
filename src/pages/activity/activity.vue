@@ -3,7 +3,6 @@
 <!-- description：开发活动界面-->
 <template>
 	<div style="height: 800px;">
-		<el-scrollbar>
 			<!-- 搜索框 -->
 			<div style="background-color: #666666;width:93%;height: 25px;margin:15px auto;">
 				<i class="iconfont iconsousuo" slot="icon" style="color:#ADADAD;font-size: 25px;"></i>
@@ -60,25 +59,25 @@
 			</div>
 			<!-- 底部导航栏 -->
 			<div>
-				<tabbar style="background-color: #333333;position: fixed;height: 50px;">
-					<tabbar-item>
-						<span slot="label" style="font-size: 15px;">首页</span>
-					</tabbar-item>
-					<tabbar-item selected link="/activity">
-						<span slot="label" style="font-size: 15px;">活动</span>
-					</tabbar-item>
-					<tabbar-item style="padding-top: 7px;">
-						<i class="iconfont iconvideo" slot="icon" style="font-size: 35px;"></i>
-					</tabbar-item>
-					<tabbar-item link="/message">
-						<span slot="label" style="font-size: 15px;">消息</span>
-					</tabbar-item>
-					<tabbar-item link="/user">
-						<span slot="label" style="font-size: 15px;">我的</span>
-					</tabbar-item>
-				</tabbar>
+				 <tabbar style="background-color: #333333;height: 50px;position: fixed;">
+						  <tabbar-item link="/home">
+						   <span slot="label" style="font-size: 15px;">首页</span>
+						  </tabbar-item>
+						  <tabbar-item selected link="/activity">
+						   <span slot="label" style="font-size: 15px;">活动</span>
+						  </tabbar-item>
+						  <tabbar-item style="padding-top: 7px;">
+						   <i class="iconfont iconvideo" slot="icon" style="font-size: 35px;"></i>
+						  </tabbar-item>
+						  <tabbar-item  link="/message">
+						   <span slot="label" style="font-size: 15px;">消息</span>
+						  </tabbar-item>
+						  <tabbar-item  link="/user">
+						   <span slot="label" style="font-size: 15px;">我的</span>
+						  </tabbar-item>
+						</tabbar>
+				
 			</div>
-		</el-scrollbar>
 	</div>
 </template>
 
