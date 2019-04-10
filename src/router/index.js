@@ -5,7 +5,7 @@ import Message from '@/pages/message/message.vue'
 import User from '@/pages/user/user.vue'
 import Test from '@/pages/test.vue'
 import Activity from '@/pages/activity/activity.vue'
-
+import Activitydetail from '@/pages/activity/activitydetail.vue'
 import Biaoqian from '@/pages/biaoqian.vue'
 Vue.use(Router)
 
@@ -23,6 +23,10 @@ export default new Router({
    	path: '/activity',
    	component: Activity
    },
+    {
+		  path: '/activitydetail',
+		  component: Activitydetail
+		},
 	 {
       path: '/message',
       component: Message
