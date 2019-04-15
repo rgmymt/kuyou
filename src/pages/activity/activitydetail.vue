@@ -1,24 +1,27 @@
 <template>
 	<div >
-		<div style="z-index: -2;position: absolute;">
-		 <img src="../../assets/img/activity1.jpg" style="width:100%;height: 150px;"> 
-		</div>
-			<div style="z-index: 0;">
+		<div style="z-index: 5;position:absolute ;width: 100%;top:0px">
+				<router-link to="/activity">
 				<x-icon type="ios-arrow-back" size="40" fill="#FFFFFF"></x-icon>
 				<br>
+				</router-link>
 			</div>
-			<div style="white-space: nowrap;margin-top: 105px;">
+		<div style="z-index: 0;position: absolute;top:0px">
+		 <img :src="bg_img" style="width:100%;height: 150px;"> 
+		</div>
+		<div style="position: absolute;z-index: 2;top:50px;">
+			<div style="margin-top: 105px;">
 				<router-link to="/activity">
 					<span style="color: yellow;font-size: 14px;margin-left: 5%">#徒步游城市</span>
 				</router-link>
-				<div style="margin-left: 70%;margin-top:-20px;">
+				<div style="float: right;margin-right: 25px;">
 					<i class="iconfont iconshijian" slot="icon" style="color:yellow;font-size: 15px;"></i>
 					<span style="font-size:11px;color:#ADADAD;">3/2-3/20</span>
 				</div>
 			</div>
-			<div style="white-space: nowrap;">
+			<div style="margin-top: 5px;">
 				<span style="color:#FFFFFF;font-size: 16px;font-weight: 700;margin-left: 6%;margin-top: 15px;">详情描述</span>
-				<div style="margin-left:70%;margin-top:-25px;">
+				<div style="float: right;margin-right: 50px;">
 					<i class="iconfont iconweizhi" slot="icon" style="color:yellow;font-size: 15px;"></i>
 					<span style="font-size:11px;color:#ADADAD;">不限</span>
 				</div>
@@ -31,34 +34,40 @@
 			<div>
 				<label class="gray_line"></label>
 			</div>
+			<flexbox>
+				<flexbox-item>
+					<div class="flex-demo">
+						<router-link to="/videoplay">
+							<img src="../../../static/img/work4.png" style="width: 90%;height: 190px;margin-top:8px;margin-left: 11.9%;">
+						</router-link>
+					</div>
+				</flexbox-item>
+				<flexbox-item>
+					<div class="flex-demo">
+						<router-link to="/videoplay">
+							<img src="../../../static/img/work5.png" style="width: 90%;height: 190px;margin-top:8px;">
+						</router-link>
+					</div>
+				</flexbox-item>
+			</flexbox>
+			 <div style="width: 95%;">
+		      	<flexbox class="video-warp">
+		      				<flexbox-item :span="1/2" v-for="(video,index) in videolist" :key="index">
+		      					<div class="flex-demo">
+		      						<div style="font-size: 12px;width: 90%;white-space:pre-wrap">
+		      						<router-link to="/activitydetail" style="color: yellow;font-size: 12px;text-decoration:none;">
+		      						<span >{{video.biaoqian}}</span>
+		      						</router-link>
+		      						<i class="iconfont iconweizhi" slot="icon" style="color:gray;font-size: 12px;"></i>
+		      						<span style="font-size: 12px;color: gray;">{{video.dingwei}}</span>
+									<span style="color: white;">{{video.liuyan}}</span>
+		      					</div></div>
+		      				</flexbox-item>
+		      				</flexbox>	
+							</div>
+			  </div> 
 			<div>
-				<router-link to="/videoplay">
-					<img src="../../../static/img/work4.png" style="width: 40%;height: 190px;margin-top: 5px;margin-left: 7%;">
-				</router-link>
-			</div>
-			<div style="margin-top: -210px;margin-left: 52%;">
-				<router-link to="/videoplay">
-					<img src="../../../static/img/work5.png" style="width: 93%;height: 190px;margin-top:5px;">
-				</router-link>
-			</div>
-			<div>
-				<span style="color: yellow;margin-left: 5%;font-size: 12px;">#徒步游城市</span>
-				<i class="iconfont iconweizhi" slot="icon" style="color:gray;font-size: 12px;"></i>
-				<span style="color: gray;font-size: 12px;margin-left: -5px;">杭州西湖</span>
-			</div>
-			<div style="margin-top: -18px;margin-left: 52%;">
-				<span style="color: yellow;font-size: 12px;">#徒步游城市</span>
-				<i class="iconfont iconweizhi" slot="icon" style="color:gray;font-size: 12px;"></i>
-				<span style="color: gray;font-size: 12px;margin-left: -5px;">山东青岛</span>
-			</div>
-			<div>
-				<span style="color: white;font-size: 12px;margin-left: 7%;">故事从这里开始</span>
-			</div>
-			<div style="margin-top: -18px;margin-left: 45%;">
-				<span style="color: white;font-size: 12px;margin-left: 20%;">大海！！</span>
-			</div>
-			<div>
-				<button type="submit" style="background-color: yellow;color:#333333;margin-left: 38%;width: 80px;height: 30px;border-radius: 20px;position:fixed;bottom: 10px;">参与 </button>
+				<button type="submit" style="background-color: yellow;color:#333333;margin-left: 38%;width: 80px;height: 30px;border-radius: 20px;position:fixed;bottom: 20px;">参与 </button>
 			</div>
 	</div>
 </template>
@@ -94,11 +103,19 @@
 		},
 		data() {
 			return {
-				backgroundDiv: {
-					backgroundImage: 'url(' + require('../../assets/img/activity1.jpg') + ')',
-					backgroundRepeat: "no-repeat",
-					backgroundSize: "100% 20%",
+				bg_img:"./static/img/activity1.jpg",
+				videolist: [{
+					dingwei: '杭州西湖',
+					cover:'./static/img/work4.png',
+					biaoqian:'#徒步游城市',
+					liuyan: '故事从这里开始',
 				},
+				{
+					dingwei: '山东青岛',
+					cover:'./static/img/work5.png',
+					biaoqian:'#徒步游城市',
+					liuyan:'大海！！',
+				}],
 			}
 		}
 	}
@@ -113,9 +130,9 @@
 		float: left;
 		margin: 10px 0px;
 	}
-
-	.el-scrollbar__wrap {
-		overflow-x: hidden;
-	}
+     .video-warp{
+		 margin: 5px 8px;
+		 white-space: nowrap;
+	 }
 
 </style>
